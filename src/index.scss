@@ -1,0 +1,18 @@
+$colors: (
+  "dark": #17223b,
+  "lighter-dark": #263859,
+  "accent-1": #67a9ff,
+  "accent-2": #4e9bff,
+  "lighter-accent": #d1e5ff,
+  "success": #67ff90,
+  "danger": #ff677c,
+);
+
+// dynamic get system colors
+@function setColors($targetColor) {
+  @return map-get($colors, $targetColor);
+}
+
+body {
+  background-color: setColors("dark");
+}

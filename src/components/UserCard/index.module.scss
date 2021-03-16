@@ -1,0 +1,51 @@
+@import "../../index.scss";
+
+.card {
+  background-color: setColors("lighter-dark");
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.5rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 6px solid transparent;
+  &:hover {
+    // background-color: #67a9ff61;
+    background-color: setColors("accent-1");
+    border: 6px solid setColors("lighter-dark");
+  }
+  .avatar {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-right: 2rem;
+    background-color: setColors("dark");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+  }
+  .txt {
+    .prefix {
+      padding: 0.375rem 0.5rem;
+      background-color: setColors("dark");
+      color: setColors("lighter-accent");
+      border-radius: 4px;
+      font-size: 16px;
+      text-transform: capitalize;
+      letter-spacing: 1.5px;
+    }
+    .name {
+      padding: 0.5rem;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: capitalize;
+      color: #fff;
+    }
+    .role {
+      font-weight: 400;
+      font-size: 14px;
+      text-transform: capitalize;
+      color: #fff;
+    }
+  }
+}
