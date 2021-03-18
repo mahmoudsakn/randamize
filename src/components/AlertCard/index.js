@@ -61,8 +61,30 @@ export default function AlertCard({ userData }) {
     });
   };
 
+  const shuffle = (data) => {
+    let currentIndex = data.length,
+      temporaryValue,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = data[currentIndex];
+      data[currentIndex] = data[randomIndex];
+      data[randomIndex] = temporaryValue;
+    }
+    return data;
+  };
+
   const fireAlert = () => {
     setLoading((oldValue) => !oldValue);
+    const changes = shuffle([...userData]);
+    userData = changes;
+    console.log(userData);
     setTimeout(() => {
       setVisible((oldValue) => !oldValue);
       setLoading((oldValue) => !oldValue);

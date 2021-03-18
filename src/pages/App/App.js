@@ -1,8 +1,9 @@
 import UserCard from "../../components/UserCard";
 import AlertCard from "../../components/AlertCard";
+import { useState, useEffect } from "react";
 
 function App() {
-  const data = [
+  const localData = [
     {
       name: "Mahmoud",
       prefix: "mr",
@@ -26,6 +27,9 @@ function App() {
     },
   ];
 
+  const [data, setData] = useState([]);
+  const [x, setX] = useState({});
+
   const shuffle = (data) => {
     let currentIndex = data.length,
       temporaryValue,
@@ -45,13 +49,22 @@ function App() {
     return data;
   };
 
-  const shuffleData = shuffle(data);
+  const handle = () => {
+    const changes = shuffle([...data]);
+    setData(changes);
+  };
+
+  useEffect(() => {
+    const shuffleData = shuffle(localData);
+    setData(shuffleData);
+  }, []);
 
   return (
     <div className="container">
-      <AlertCard userData={shuffleData[0]} />
+      <button onClick={handle}>shuffle</button>
+      <AlertCard userData={data} />
       <div className="grid">
-        {shuffleData.map((user, index) => (
+        {data.map((user, index) => (
           <UserCard key={index} userData={user} />
         ))}
       </div>
