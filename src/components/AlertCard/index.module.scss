@@ -19,3 +19,59 @@
     background-color: setColors("accent-2");
   }
 }
+
+.mainAlert {
+  display: flex;
+  .avatar {
+    @include avatar(350px, auto);
+    border: 6px solid setColors("lighter-dark");
+    font-size: 300%;
+    margin: 0 auto;
+  }
+  .body {
+    width: 40%;
+    margin: 0 auto;
+    .board {
+      background-color: setColors("lighter-dark");
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      text-align: center;
+      .prefix {
+        @include prefix;
+      }
+      .name {
+        font-size: 300%;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+        padding-top: 1rem;
+      }
+    }
+    .msg {
+      font-size: 300%;
+      font-weight: 700;
+      color: setColors("success");
+      text-align: center;
+    }
+  }
+}
+
+.closeAlert {
+  position: absolute;
+  top: -40px;
+  right: -48px;
+  border: 0;
+  outline: 0;
+  color: setColors("danger");
+  // padding: 8px 12px;
+  font-size: 200%;
+  background-color: setColors("dark");
+  border: 4px solid setColors("danger");
+  border-radius: 28px;
+  width: 92px;
+  height: 67px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

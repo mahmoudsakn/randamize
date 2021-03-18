@@ -16,3 +16,31 @@ $colors: (
 body {
   background-color: setColors("dark");
 }
+
+@mixin avatar($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 8px;
+  margin-right: 2rem;
+  background-color: setColors("dark");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+@mixin prefix {
+  padding: 0.375rem 0.5rem;
+  background-color: setColors("dark");
+  color: setColors("lighter-accent");
+  border-radius: 4px;
+  font-size: 16px;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+}
+
+.rodal {
+  backdrop-filter: blur(10px);
+  opacity: 0.88;
+}
