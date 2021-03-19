@@ -3,9 +3,17 @@ import styles from "./index.module.scss";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import confetti from "canvas-confetti";
+import party from "../../assets/sounds/party-pop.mp3";
+import startRace from "../../assets/sounds/start-pop.mp3";
+import closeIcon from "../../assets/images/close.svg";
+import { SemipolarLoading } from "react-loadingg";
 
 function Loading() {
-  return <div style={{ color: "#fff" }}>loading</div>;
+  return (
+    <div className={styles.loading}>
+      <SemipolarLoading color="#67ff90" size="large" />
+    </div>
+  );
 }
 
 export default function AlertCard({ singleUserData: { ...singleUserData } }) {
@@ -21,12 +29,15 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
     alignItems: "center",
   };
 
+  const partyPop = new Audio(party);
+  const racePop = new Audio(startRace);
+
   const fireParty = () => {
     const count = 200;
     const defaults = {
       origin: { y: 0.7 },
       zIndex: 99999,
-      ticks: 230,
+      ticks: 250,
     };
 
     const fire = (particleRatio, opts) => {
@@ -61,13 +72,15 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
     });
   };
 
-  const fireAlert = (user) => {
+  const fireAlert = () => {
     setLoading((oldValue) => !oldValue);
+    racePop.play();
     setTimeout(() => {
+      partyPop.play();
       setVisible((oldValue) => !oldValue);
       setLoading((oldValue) => !oldValue);
       fireParty();
-    }, 1000);
+    }, 4600);
   };
   return (
     <div className={styles.alertCard}>
@@ -86,25 +99,29 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
       >
         <button
           className={styles.closeAlert}
-          onClick={() => window.location.reload(false)}
+          onClick={() => window.location.reload()}
         >
-          <span>&times;</span>
+          <img src={closeIcon} alt="close-button" />
         </button>
         <div className={styles.mainAlert}>
-          <div className={styles.avatar}>{singleUserData.avatar}</div>
+          <div className={styles.avatar}>
+            {singleUserData.name === undefined
+              ? null
+              : singleUserData.name.charAt(0)}
+          </div>
           <div className={styles.body}>
             <div className={styles.board}>
-              <span className={styles.prefix}>{singleUserData.prefix}</span>
+              <span className={styles.prefix}>
+                {singleUserData.gender === undefined
+                  ? null
+                  : singleUserData.gender === "m"
+                  ? "mr"
+                  : "mrs"}
+              </span>
               <p className={styles.name}>{singleUserData.name}</p>
             </div>
             <p className={styles.msg}>You are on the stage</p>
           </div>
-          {/* <iframe
-            width="50"
-            height="50"
-            src="https://www.youtube.com/embed/i75GQG7YMu8?autoplay=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe> */}
         </div>
       </Rodal>
     </div>

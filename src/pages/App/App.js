@@ -4,24 +4,21 @@ import { useState, useEffect } from "react";
 
 const localData = [
   {
-    name: "Mahmoud",
-    prefix: "mr",
+    name: "mahmoud",
     role: "Associate",
     gender: "m",
     avatar: "M",
   },
   {
     name: "a",
-    prefix: "mr",
     role: "Associate",
     gender: "m",
     avatar: "M",
   },
   {
     name: "nnnn",
-    prefix: "mr",
     role: "Associate",
-    gender: "m",
+    gender: "f",
     avatar: "M",
   },
 ];
