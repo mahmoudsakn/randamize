@@ -2,33 +2,32 @@ import UserCard from "../../components/UserCard";
 import AlertCard from "../../components/AlertCard";
 import { useState, useEffect } from "react";
 
+const localData = [
+  {
+    name: "Mahmoud",
+    prefix: "mr",
+    role: "Associate",
+    gender: "m",
+    avatar: "M",
+  },
+  {
+    name: "a",
+    prefix: "mr",
+    role: "Associate",
+    gender: "m",
+    avatar: "M",
+  },
+  {
+    name: "nnnn",
+    prefix: "mr",
+    role: "Associate",
+    gender: "m",
+    avatar: "M",
+  },
+];
 function App() {
-  const localData = [
-    {
-      name: "Mahmoud",
-      prefix: "mr",
-      role: "Associate",
-      gender: "m",
-      avatar: "M",
-    },
-    {
-      name: "a",
-      prefix: "mr",
-      role: "Associate",
-      gender: "m",
-      avatar: "M",
-    },
-    {
-      name: "nnnn",
-      prefix: "mr",
-      role: "Associate",
-      gender: "m",
-      avatar: "M",
-    },
-  ];
-
   const [data, setData] = useState([]);
-  const [x, setX] = useState({});
+  const [singleRandom, setSingleRandom] = useState({});
 
   const shuffle = (data) => {
     let currentIndex = data.length,
@@ -49,20 +48,25 @@ function App() {
     return data;
   };
 
-  const handle = () => {
-    const changes = shuffle([...data]);
-    setData(changes);
-  };
+  // const handle = (user) => {
+  //   const shuffleData = shuffle(localData);
+  //   const singleObj =
+  //     shuffleData[Math.floor(Math.random() * shuffleData.length)];
+  //   setSingleRandom(singleObj);
+  //   console.log(user);
+  // };
 
   useEffect(() => {
     const shuffleData = shuffle(localData);
     setData(shuffleData);
+    const singleObj =
+      shuffleData[Math.floor(Math.random() * shuffleData.length)];
+    setSingleRandom(singleObj);
   }, []);
 
   return (
     <div className="container">
-      <button onClick={handle}>shuffle</button>
-      <AlertCard userData={data} />
+      <AlertCard singleUserData={singleRandom} />
       <div className="grid">
         {data.map((user, index) => (
           <UserCard key={index} userData={user} />

@@ -8,7 +8,7 @@ function Loading() {
   return <div style={{ color: "#fff" }}>loading</div>;
 }
 
-export default function AlertCard({ userData }) {
+export default function AlertCard({ singleUserData: { ...singleUserData } }) {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -61,30 +61,8 @@ export default function AlertCard({ userData }) {
     });
   };
 
-  const shuffle = (data) => {
-    let currentIndex = data.length,
-      temporaryValue,
-      randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = data[currentIndex];
-      data[currentIndex] = data[randomIndex];
-      data[randomIndex] = temporaryValue;
-    }
-    return data;
-  };
-
-  const fireAlert = () => {
+  const fireAlert = (user) => {
     setLoading((oldValue) => !oldValue);
-    const changes = shuffle([...userData]);
-    userData = changes;
-    console.log(userData);
     setTimeout(() => {
       setVisible((oldValue) => !oldValue);
       setLoading((oldValue) => !oldValue);
@@ -106,15 +84,18 @@ export default function AlertCard({ userData }) {
         showCloseButton={false}
         customStyles={customStyles}
       >
-        <button className={styles.closeAlert} onClick={() => setVisible(false)}>
+        <button
+          className={styles.closeAlert}
+          onClick={() => window.location.reload(false)}
+        >
           <span>&times;</span>
         </button>
         <div className={styles.mainAlert}>
-          <div className={styles.avatar}>{userData.avatar}</div>
+          <div className={styles.avatar}>{singleUserData.avatar}</div>
           <div className={styles.body}>
             <div className={styles.board}>
-              <span className={styles.prefix}>{userData.prefix}</span>
-              <p className={styles.name}>{userData.name}</p>
+              <span className={styles.prefix}>{singleUserData.prefix}</span>
+              <p className={styles.name}>{singleUserData.name}</p>
             </div>
             <p className={styles.msg}>You are on the stage</p>
           </div>
