@@ -10,13 +10,19 @@ const localData = [
     avatar: "M",
   },
   {
-    name: "a",
+    name: "milad",
     role: "Associate",
     gender: "m",
     avatar: "M",
   },
   {
-    name: "nnnn",
+    name: "khaled",
+    role: "Associate",
+    gender: "m",
+    avatar: "M",
+  },
+  {
+    name: "nora",
     role: "Associate",
     gender: "f",
     avatar: "M",
