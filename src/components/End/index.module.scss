@@ -1,0 +1,26 @@
+@import "../../index.scss";
+
+.end {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 3rem;
+  border-top: 2px solid setColors("lighter-dark");
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: setColors("dark");
+  span {
+    text-transform: capitalize;
+    color: #fff;
+    padding: 0 0.5rem;
+    color: setColors("lighter-accent");
+    opacity: 0.8;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}

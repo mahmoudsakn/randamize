@@ -87,11 +87,11 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
       {loading ? <Loading /> : null}
 
       <button onClick={fireAlert} className={styles.primaryButton}>
-        randamize
+        randomize
       </button>
       <Rodal
         visible={visible}
-        onClose={() => setVisible(false)}
+        onClose={() => window.location.reload()}
         width={800}
         height={500}
         showCloseButton={false}
@@ -120,7 +120,9 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
               </span>
               <p className={styles.name}>{singleUserData.name}</p>
             </div>
-            <p className={styles.msg}>You are on the stage</p>
+            <div className={styles.msg}>
+              <p>You are on the stage</p>
+            </div>
           </div>
         </div>
       </Rodal>

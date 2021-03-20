@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/wzv1sac.css");
+
 $colors: (
   "dark": #17223b,
   "lighter-dark": #263859,
@@ -15,6 +17,7 @@ $colors: (
 
 body {
   background-color: setColors("dark");
+  font-family: sofia-pro, sans-serif;
 }
 
 @mixin avatar($width, $height) {
@@ -42,6 +45,5 @@ body {
 }
 
 .rodal {
-  backdrop-filter: blur(10px);
-  opacity: 0.88;
+  backdrop-filter: blur(3px);
 }
