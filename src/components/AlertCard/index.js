@@ -87,7 +87,7 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
       {loading ? <Loading /> : null}
 
       <button onClick={fireAlert} className={styles.primaryButton}>
-        randomize
+        pick member
       </button>
       <Rodal
         visible={visible}
