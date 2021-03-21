@@ -82,6 +82,41 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
       fireParty();
     }, 4600);
   };
+
+  const shuffle = (data) => {
+    let currentIndex = data.length,
+      temporaryValue,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = data[currentIndex];
+      data[currentIndex] = data[randomIndex];
+      data[randomIndex] = temporaryValue;
+    }
+    return data;
+  };
+
+  const conicStylish = [
+    {
+      background: "conic-gradient(from 0.5turn at 50% 110%, white, orange)",
+    },
+    {
+      background:
+        "conic-gradient(from -0.5turn at bottom right,deeppink,cyan,rebeccapurple)",
+    },
+    {
+      background:
+        "conic-gradient(from -270deg at 75% 110%,fuchsia,floralwhite)",
+    },
+  ];
+  const shuffleConic = shuffle(conicStylish);
+
   return (
     <div className={styles.alertCard}>
       {loading ? <Loading /> : null}
@@ -104,7 +139,7 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
           <img src={closeIcon} alt="close-button" />
         </button>
         <div className={styles.mainAlert}>
-          <div className={styles.avatar}>
+          <div className={styles.avatar} style={shuffleConic[0]}>
             {singleUserData.name === undefined
               ? null
               : singleUserData.name.charAt(0)}

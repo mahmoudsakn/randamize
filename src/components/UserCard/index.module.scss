@@ -14,6 +14,30 @@
     background-color: setColors("accent-1");
     border: 6px solid setColors("lighter-dark");
   }
+  &:nth-child(3n + 1) {
+    .avatar {
+      background: conic-gradient(
+        from -270deg at 75% 110%,
+        fuchsia,
+        floralwhite
+      );
+    }
+  }
+  &:nth-child(3n + 2) {
+    .avatar {
+      background: conic-gradient(
+        from -0.5turn at bottom right,
+        deeppink,
+        cyan,
+        rebeccapurple
+      );
+    }
+  }
+  &:nth-child(3n + 3) {
+    .avatar {
+      background: conic-gradient(from 0.5turn at 50% 110%, white, orange);
+    }
+  }
   .avatar {
     @include avatar(114px, 92px);
     font-size: 250%;
