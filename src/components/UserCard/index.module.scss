@@ -38,6 +38,27 @@
       background: conic-gradient(from 0.5turn at 50% 110%, white, orange);
     }
   }
+  @media (max-width: 1400px) {
+    &:nth-child(even) {
+      .avatar {
+        background: conic-gradient(
+          from -270deg at 75% 110%,
+          fuchsia,
+          floralwhite
+        );
+      }
+    }
+    &:nth-child(odd) {
+      .avatar {
+        background: conic-gradient(
+          from -0.5turn at bottom right,
+          deeppink,
+          cyan,
+          rebeccapurple
+        );
+      }
+    }
+  }
   .avatar {
     @include avatar(114px, 92px);
     font-size: 250%;

@@ -77,7 +77,7 @@ const localData = [
     role: "testing",
   },
   {
-    name: "nur mallah",
+    name: "nur",
     gender: "f",
     avatar: "",
     role: "operations",

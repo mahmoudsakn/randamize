@@ -74,13 +74,13 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
 
   const fireAlert = () => {
     setLoading((oldValue) => !oldValue);
-    racePop.play();
+    // racePop.play();
     setTimeout(() => {
       partyPop.play();
       setVisible((oldValue) => !oldValue);
       setLoading((oldValue) => !oldValue);
       fireParty();
-    }, 4600);
+    }, 1500);
   };
 
   const shuffle = (data) => {

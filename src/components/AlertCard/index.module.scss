@@ -27,10 +27,16 @@
     border: 6px solid setColors("lighter-dark");
     font-size: 700%;
     margin: 0 auto;
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
   .body {
     width: 40%;
     margin: 0 auto;
+    @media (max-width: 600px) {
+      width: 60%;
+    }
     .board {
       background-color: setColors("lighter-dark");
       border-radius: 16px;
