@@ -4,7 +4,7 @@ import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import confetti from "canvas-confetti";
 import party from "../../assets/sounds/party-pop.mp3";
-import startRace from "../../assets/sounds/start-pop.mp3";
+// import startRace from "../../assets/sounds/start-pop.mp3";
 import closeIcon from "../../assets/images/close.svg";
 import { SemipolarLoading } from "react-loadingg";
 
@@ -30,7 +30,7 @@ export default function AlertCard({ singleUserData: { ...singleUserData } }) {
   };
 
   const partyPop = new Audio(party);
-  const racePop = new Audio(startRace);
+  // const racePop = new Audio(startRace);
 
   const fireParty = () => {
     const count = 200;
